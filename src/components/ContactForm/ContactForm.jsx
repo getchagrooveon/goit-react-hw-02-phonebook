@@ -1,4 +1,5 @@
 import styles from './ContactForm.module.css';
+import PropTypes from 'prop-types';
 
 export const ContactForm = ({ onChange, onSubmit }) => {
   return (
@@ -33,4 +34,8 @@ export const ContactForm = ({ onChange, onSubmit }) => {
       </button>
     </form>
   );
+};
+ContactForm.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };

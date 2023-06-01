@@ -1,4 +1,6 @@
 import styles from './SearchFilters.module.css';
+import PropTypes from 'prop-types';
+
 export const SearchFilters = ({ onChange }) => {
   return (
     <div>
@@ -12,4 +14,8 @@ export const SearchFilters = ({ onChange }) => {
       />
     </div>
   );
+};
+
+SearchFilters.propTypes = {
+  onChange: PropTypes.func.isRequired,
 };
