@@ -13,3 +13,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 1.4rem;
+  background: whitesmoke;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+#root {
+  width: 600px;
+  align-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
