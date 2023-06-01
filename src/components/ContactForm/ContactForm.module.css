@@ -1,13 +1,13 @@
 .button {
-    border-color: blue;
+    border-color: lightblue;
     color: #fff;
-    box-shadow: 0 0 40px 40px blue inset, 0 0 0 0 blue;
+    box-shadow: 0 0 40px 40px lightblue inset, 0 0 0 0 lightblue;
     transition: all 150ms ease-in-out;
     border-radius: 4px;
 }
 
-.button:hover {
-    box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+.button:hover, .button:focus {
+    box-shadow: 0 0 10px 0 lightblue inset, 0 0 10px 4px lightblue;
 }
 
 .listItem {
@@ -24,13 +24,14 @@ form {
     width: 50%;
     margin: 0 auto;
     margin-top: 5px;
-    border-color: blue;
+    border-color: lightblue;
     color: #000;
-    box-shadow: 0 0 40px 40px #fff inset, 0 0 0 0 blue;
+    box-shadow: 0 0 40px 40px #fff inset, 0 0 0 0 lightblue;
     transition: all 150ms ease-in-out;
     border-radius: 4px;
 }
 
-.input:hover {
-    box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+.input:hover, input:focus,
+input:active {
+    box-shadow: 0 0 10px 0 lightblue inset, 0 0 10px 4px lightblue;
 }
