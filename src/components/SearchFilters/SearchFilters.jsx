@@ -19,4 +19,5 @@ export const SearchFilters = ({ onChange, filter }) => {
 
 SearchFilters.propTypes = {
   onChange: PropTypes.func.isRequired,
+  filter: PropTypes.string,
 };
