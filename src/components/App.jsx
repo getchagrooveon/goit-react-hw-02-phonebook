@@ -5,22 +5,14 @@ import { ContactList } from './ContactList/ContactList';
 import { SearchFilters } from './SearchFilters/SearchFilters';
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      contacts: [
-        { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-        { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-        { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-        { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-      ],
-      filter: '',
-    };
-  }
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  state = {
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    filter: '',
   };
 
   handleFilterChange = event => {
@@ -39,27 +31,20 @@ export class App extends Component {
     }));
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const newContact = {
-      id: nanoid(),
-      name: form.elements.name.value,
-      number: form.elements.number.value,
-    };
+  checkname = newContact => {
     if (
       this.state.contacts.find(
-        contact =>
-          contact.name.toLowerCase() === form.elements.name.value.toLowerCase()
+        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
       )
     ) {
-      alert(`${form.elements.name.value} is already in contacts`);
+      alert(`${newContact.name} is already in contacts`);
     } else {
-      this.state.contacts.push(newContact);
+      this.setState(prevState => ({
+        contacts: [newContact, ...prevState.contacts],
+      }));
     }
-    this.forceUpdate();
-    form.reset();
   };
+
   render() {
     const contacts = this.getFilteredArray();
     return (
@@ -67,11 +52,14 @@ export class App extends Component {
         <div>
           <h1>Phonebook</h1>
           <ContactForm
-            onChange={this.handleChange}
             onSubmit={this.handleSubmit}
+            checkName={this.checkname}
           />
           <h2>Contacts</h2>
-          <SearchFilters onChange={this.handleFilterChange} />
+          <SearchFilters
+            onChange={this.handleFilterChange}
+            filter={this.state.filter}
+          />
           <ContactList contacts={contacts} handleDelete={this.handleDelete} />
         </div>
       </>

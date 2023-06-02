@@ -1,7 +1,7 @@
 import styles from './SearchFilters.module.css';
 import PropTypes from 'prop-types';
 
-export const SearchFilters = ({ onChange }) => {
+export const SearchFilters = ({ onChange, filter }) => {
   return (
     <div>
       <h3>Find contacts by name</h3>
@@ -11,6 +11,7 @@ export const SearchFilters = ({ onChange }) => {
         onChange={onChange}
         autoComplete="off"
         className={styles.input}
+        value={filter}
       />
     </div>
   );
